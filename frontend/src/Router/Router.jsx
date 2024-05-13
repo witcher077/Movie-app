@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import Home from "../Components/Home";
 import Login from "../Components/Login";
@@ -9,8 +9,9 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/login' element={<Login />} />
+                <Route path='/' exact element={<Home />} />
+                <Route path='*' element={<Navigate to="/" />}/>
+                <Route path='/login' exact element={<Login />} />
             </Routes>
         </BrowserRouter>
     )
